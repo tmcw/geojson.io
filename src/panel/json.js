@@ -62,7 +62,7 @@ export default class Code extends React.Component {
     } else if (err.length) {
       this.handleGeoJSONError(editor, err);
     }
-    if (!(err instanceof Error || err.every(e => e.level !== 'message'))) {
+    if (!(err instanceof Error || !err.every(e => !e.message))) {
       console.log("valid geojson, sending");
       const zoom =
         changeObj.from.ch === 0 &&
